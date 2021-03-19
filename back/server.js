@@ -35,9 +35,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const movieRoutes = require('./api/movie/movie.routes')
+const tmdbRoutes = require('./api/tmdb/tmdb.routes')
 
 //routes
 app.use('/api/movie', movieRoutes)
+app.use('/api/tmdb', tmdbRoutes)
 
 
 app.get('/**', (req, res) => {

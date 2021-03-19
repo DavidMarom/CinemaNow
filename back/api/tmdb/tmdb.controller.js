@@ -1,9 +1,9 @@
-const movieService = require('./movie.service')
+const movieService = require('./tmdb.service')
 
-// async function getMovie(req, res) {
-//     const movie = await movieService.getByQuery(req.params.query)
-//     res.send(movie)
-// }
+async function getMovie(req, res) {
+    const movie = await movieService.getByQuery(req.params.query)
+    res.send(movie)
+}
 
 async function deleteMovie(req, res) {
     await movieService.remove(req.params.id)
@@ -23,7 +23,7 @@ async function updateMovie(req, res) {
 }
 
 module.exports = {
-    // getMovie,
+    getMovie,
     addMovie,
     deleteMovie,
     updateMovie

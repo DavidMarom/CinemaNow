@@ -23,19 +23,19 @@ async function ajax(endpoint, method = 'get', data = null) {
 }
 
 module.exports = {
-    // getByQuery,
+    getByQuery,
     add,
     remove
 }
 
-// async function getByQuery(query) {
-//     try {
-//         return ajax(`http://api.themoviedb.org/3/search/keyword?api_key=fbee9c6188286a5d20cf549e6bbeea4e&query=${query}&page=1`, 'GET', null)
-//     } catch {
-//         console.log(`Cant get movies from TMDB`);
-//         throw err;
-//     }
-// }
+async function getByQuery(query) {
+    try {
+        return ajax(`http://api.themoviedb.org/3/search/keyword?api_key=fbee9c6188286a5d20cf549e6bbeea4e&query=${query}&page=1`, 'GET', null)
+    } catch {
+        console.log(`Cant get movies from TMDB`);
+        throw err;
+    }
+}
 
 async function add(movie) {
     const collection = await dbService.getCollection('movies')
