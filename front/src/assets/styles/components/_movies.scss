@@ -1,5 +1,5 @@
 .movie-strip {
-    border: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
     height: 3rem;
     // align-content: center;
 }
@@ -15,7 +15,16 @@
 .movie-id {
     display: flex;
     flex-direction: row;
-    width: 20%;
+    align-content: center;
+    align-items: center;
+    width: fit-content;
+
+}
+
+.add-button-col {
+    display: flex;
+    flex-direction: row;
+    width: 12rem;
     align-content: center;
     align-items: center;
 }

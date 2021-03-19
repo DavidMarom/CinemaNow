@@ -1,10 +1,10 @@
 const express = require('express')
-// const { getMovie } = require('./movie.controller')
+const { addMovie, getMovies } = require('./movie.controller')
 const router = express.Router()
 
-// router.get('/:query', getMovie)
+router.get('/', getMovies)
 // router.put('/update', updateMovie)
-// router.post('/add', addMovie)
+router.put('/add', addMovie)
 // router.delete('/:id', deleteMovie)
 
 module.exports = router

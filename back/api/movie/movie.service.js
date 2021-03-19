@@ -1,59 +1,32 @@
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
-const Axios = require('axios');
-var axios = Axios.create({ withCredentials: true });
+module.exports = {
+    addMovie,query
+}
 
-async function ajax(endpoint, method = 'get', data = null) {
+async function query() {
+    const collection = await dbService.getCollection('movies');
     try {
-        const res = await axios({
-            url: `${endpoint}`,
-            method,
-            data
-        })
-        return res.data;
-    } catch (err) {
-        console.log(`Had Issues ${method}ing to the backend, endpoint: ${endpoint}, with data: ${data}`);
-        console.dir(err);
-        if (err.response && err.response.status === 401) {
-            window.location.assign('/#/login');
-        }
+        console.log('movies service');
+        var movies = await collection.find().toArray();
+        return movies;
+    }
+    catch (err) {
+        console.log('ERROR: cannot find movies')
         throw err;
     }
 }
 
-module.exports = {
-    // getByQuery,
-    add,
-    remove
-}
 
-// async function getByQuery(query) {
-//     try {
-//         return ajax(`http://api.themoviedb.org/3/search/keyword?api_key=fbee9c6188286a5d20cf549e6bbeea4e&query=${query}&page=1`, 'GET', null)
-//     } catch {
-//         console.log(`Cant get movies from TMDB`);
-//         throw err;
-//     }
-// }
 
-async function add(movie) {
+async function addMovie(movie) {
     const collection = await dbService.getCollection('movies')
     try {
         await collection.insertOne(movie);
         return movie;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`);
-        throw err;
-    }
-}
-
-async function remove(movieId) {
-    const collection = await dbService.getCollection('movie')
-    try {
-        await collection.deleteOne({ "_id": ObjectId(movieId) })
-    } catch (err) {
-        console.log(`ERROR: cannot remove announcement ${movieId}`)
+        console.log(`ERROR: cannot insert movie`)
         throw err;
     }
 }

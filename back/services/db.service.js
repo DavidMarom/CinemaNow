@@ -11,7 +11,7 @@ module.exports = {
 }
 
 // Database Name
-const dbName = 'joe_db';
+const dbName = 'cinemaDB';
 var dbConn = null;
 
 async function getCollection(collectionName) {

@@ -1,5 +1,5 @@
 const express = require('express')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -10,11 +10,13 @@ const http = require('http').createServer(app);
 
 // Express App Config
 app.use(cookieParser())
-app.use(
-    express.urlencoded({
-        extended: true
-    })
-)
+app.use(bodyParser.json());
+
+// app.use(
+//     express.urlencoded({
+//         extended: true
+//     })
+// )
 
 app.use(express.json());
 app.use(session({

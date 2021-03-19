@@ -4,13 +4,17 @@ import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 import history from './history';
 import { Router } from 'react-router-dom';
+// import { store } from './store/store';
+
 
 import './assets/styles/global.scss'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      <App />
+      {/* <Provider store={store}> */}
+        <App />
+      {/* </Provider> */}
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

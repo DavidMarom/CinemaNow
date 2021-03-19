@@ -1,30 +1,19 @@
 const movieService = require('./movie.service')
 
-// async function getMovie(req, res) {
-//     const movie = await movieService.getByQuery(req.params.query)
-//     res.send(movie)
-// }
-
-async function deleteMovie(req, res) {
-    await movieService.remove(req.params.id)
-    res.end()
-}
 
 async function addMovie(req, res) {
     const movie = req.body;
-    await movieService.add(movie)
+    await movieService.addMovie(movie)
     res.send(movie)
 }
 
-async function updateMovie(req, res) {
-    const movie = req.body;
-    await movieService.update(movie)
-    res.send(movie)
+async function getMovies(req, res) {
+    const movies = await movieService.query(req.query)
+    res.send(movies)
 }
+
 
 module.exports = {
-    // getMovie,
     addMovie,
-    deleteMovie,
-    updateMovie
+    getMovies
 }
