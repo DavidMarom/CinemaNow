@@ -1,4 +1,4 @@
-import httpService from './httpService'
+import { httpService } from './httpService'
 
 function getMovie(query) {
     return httpService.get(`tmdb/${query}`);
