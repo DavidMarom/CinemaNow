@@ -1,0 +1,32 @@
+.movie-strip {
+    border: 1px solid #eeeeee;
+    height: 3rem;
+    // align-content: center;
+}
+
+.movie-title {
+    display: flex;
+    flex-direction: row;
+
+    width: 40%;
+    align-content: center;
+    align-items: center;
+}
+.movie-id {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    align-content: center;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    align-content: center;
+}
+
+.page-general{
+    padding-left: 1rem;
+}
