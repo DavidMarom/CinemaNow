@@ -2,13 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  // height: 400px;
 }
 
 .inner-container {
-  width: 1696px;
-  padding-left: 100px;
-  padding-right: 100px;
+  width: 1400px;
 }
 
 // Row Around
@@ -25,6 +22,14 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  width: 100%;
+  align-items: center;
+}
+
+.ral {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 100%;
   align-items: center;
 }
@@ -135,15 +140,15 @@
 
 .abs {
   position: absolute;
-  top:0px
+  top: 0px;
 }
 
 .rel {
   position: relative;
 }
 
-.divider{
-  width:auto;
+.divider {
+  width: auto;
   height: 1px;
   background-color: #dadada;
 }

@@ -1,10 +1,21 @@
-function App() {
+import { NavBar } from "./cmps/NavBar.jsx";
+import { Explore } from './pages/Explore';
+import { Switch, Route } from "react-router-dom";
+
+export const App = () => {
   return (
     <div className="App">
-      <h1>42</h1>
-      <p>hey</p>
+      <div className="outter-container">
+        <div className="inner-container">
+          <NavBar />
+
+          <Switch>
+            <Route exact component={Explore} path={"/"} />
+            {/* <Route exact component={Manage} path={"/manage"} /> */}
+
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;

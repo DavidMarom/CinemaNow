@@ -41,7 +41,6 @@ const tmdbRoutes = require('./api/tmdb/tmdb.routes')
 app.use('/api/movie', movieRoutes)
 app.use('/api/tmdb', tmdbRoutes)
 
-
 app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
