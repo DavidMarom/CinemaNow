@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { tmdbService } from '../services/tmdbService'
 // import { useDispatch, useSelector } from "react-redux";
 
 export const Explore = () => {
@@ -6,6 +7,8 @@ export const Explore = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('click');
+        tmdbService.getMovie('batman')
+        .then( res => {console.log(res)})
     }
 
     return (
