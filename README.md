@@ -5,5 +5,5 @@ Cinema management application for theaters
 in each folder `front` and `back` run the command: `npm i`
 in each folder `front` and `back` run the command: `npm start`
 
-Live demo: (Click Here)[https://dashboard.heroku.com/apps]
+Live demo: [https://dashboard.heroku.com/apps]
 
