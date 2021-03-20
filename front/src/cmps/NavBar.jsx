@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loadMov } from "../store/actions/movActions";
+import { loadShow } from "../store/actions/showActions";
 import { NavLink } from 'react-router-dom'
 
 function _NavBar() {
@@ -8,6 +9,8 @@ function _NavBar() {
 
   useEffect(() => {
     dispatch(loadMov());
+    dispatch(loadShow());
+    console.log('nav-bar');
   }, []);
 
   // const test = useSelector((state) => state.movReducer.mov);

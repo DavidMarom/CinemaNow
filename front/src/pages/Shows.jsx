@@ -1,17 +1,19 @@
 import React from 'react'
-// import { useSelector } from "react-redux";
-// import { ShowStrip } from '../cmps/ShowStrip'
+import { useSelector } from "react-redux";
+import { ShowStrip } from '../cmps/ShowStrip'
 
 export const Shows = () => {
-    // const showsInState = useSelector((state) => state.showReducer.show);
-
+    const showsInState = useSelector((state) => state.showReducer.show);
+    {console.log(showsInState)}
     return (
         <div className="page-general">
-            <h1>Shows</h1>
+            <div className="hor-block">
+                <h1>Shows</h1>
+            </div>
 
-{/* 
-            { moviesInState ?
-                moviesInState.map((mov, idx) => { return <MovieStrip key={idx} mov={mov} btnAdd={false} btnRemove={true} /> }) : null} */}
+            
+            { showsInState ?
+                showsInState.map((show, idx) => { return <ShowStrip key={idx} show={show} /> }) : null}
 
 
         </div>

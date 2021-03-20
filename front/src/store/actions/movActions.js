@@ -28,7 +28,6 @@ export function removeMov(movId) {
         try {
             await moviesService.removeMov(movId);
             dispatch({ type: 'REMOVE_MOV', movId });
-            console.log('removed');
         } catch (err) {
             console.log('AnnActions: err in removeMov', err);
         }
