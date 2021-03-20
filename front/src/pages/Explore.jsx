@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { tmdbService } from '../services/tmdbService'
 import { MovieStrip } from '../cmps/MovieStrip'
 
+
 export const Explore = () => {
+
+    const [update, setUpdate] = useState(1);
+    const refresh = () => {
+        setUpdate(update + 1);
+        console.log('refresh func activated');
+    }
+
     const [searchVal, setSearchVal] = useState('fight club');
     const [lastTime, setlastTime] = useState(Date.now());
     const [que, setQue] = useState(0);
@@ -30,6 +38,10 @@ export const Explore = () => {
         } // if searchVal
     }, [searchVal]);
 
+    useEffect(() => {
+        console.log('update');
+    }, [update])
+
 
     return (
         <div className="page-general">
@@ -43,7 +55,15 @@ export const Explore = () => {
             </div>
 
             { movies ?
-                movies.results.map((mov, idx) => { return <MovieStrip key={idx} title={mov.name} movId={mov.id} mov={mov} /> }) : null}
+                movies.results.map((mov, idx) => {
+                    return <MovieStrip
+                        key={idx}
+                        mov={mov}
+                        btnAdd={true}
+                        btnRemove={false}
+                        doRefresh={refresh}
+                    />
+                }) : null}
 
 
         </div>

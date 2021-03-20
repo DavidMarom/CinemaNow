@@ -1,6 +1,6 @@
 import { moviesService } from '../../services/moviesService';
 
-export function loadAnn() {
+export function loadMov() {
     return async dispatch => {
         try {
             const allMov = await moviesService.getAllMovies();
@@ -11,25 +11,26 @@ export function loadAnn() {
     };
 }
 
-// export function addAnn(ann) {
-//     return async dispatch => {
-//         try {
-//             const _ann = await announcementsService.addAnn(ann);
-//             dispatch({ type: 'ADD_ANN', _ann })
-//         } catch (err) {
-//             console.log('SettingsActions: err in updateSettings', err);
-//         }
-//     }
-// }
+export function addMov(mov) {
+    return async dispatch => {
+        try {
+            const _mov = await moviesService.addMov(mov);
+            dispatch({ type: 'ADD_MOV', _mov })
+        } catch (err) {
+            console.log('SettingsActions: err in addMov', err);
+        }
+    }
+}
 
 
-// export function removeAnn(annId) {
-//     return async dispatch => {
-//         try {
-//             await announcementsService.remove(annId);
-//             dispatch({ type: 'REMOVE_ANN', annId });
-//         } catch (err) {
-//             console.log('AnnActions: err in removeAnn', err);
-//         }
-//     };
-// }
+export function removeMov(movId) {
+    return async dispatch => {
+        try {
+            await moviesService.removeMov(movId);
+            dispatch({ type: 'REMOVE_MOV', movId });
+            console.log('removed');
+        } catch (err) {
+            console.log('AnnActions: err in removeMov', err);
+        }
+    };
+}

@@ -1,6 +1,6 @@
 import { httpService } from './httpService'
 
-async function add(mov) {
+async function addMov(mov) {
     try {
         const res = await httpService.post(`movie/add`, mov);
         return res;
@@ -12,16 +12,16 @@ async function add(mov) {
 
 async function getAllMovies() {
     try {
-        const res = await httpService.get(`movies/`);
+        const res = await httpService.get(`movie/`);
         return res;
     } catch (err) {
         console.log(err);
     }
 }
 
-async function removeMovie(movId) {
+async function removeMov(movId) {
     try {
-        const res = await httpService.delete(`movies/${movId}`)
+        const res = await httpService.delete(`movie/${movId}`)
         return res;
     } catch (err) {
         console.log(err);
@@ -31,7 +31,7 @@ async function removeMovie(movId) {
 
 
 export const moviesService = {
-    add,
+    addMov,
     getAllMovies,
-    removeMovie
+    removeMov
 }
