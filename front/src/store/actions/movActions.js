@@ -1,0 +1,35 @@
+import { moviesService } from '../../services/moviesService';
+
+export function loadAnn() {
+    return async dispatch => {
+        try {
+            const allMov = await moviesService.getAllMovies();
+            dispatch({ type: 'LOAD_MOV', allMov });
+        } catch (err) {
+            console.log('SettingsActions: err in getAllMovies', err);
+        }
+    };
+}
+
+// export function addAnn(ann) {
+//     return async dispatch => {
+//         try {
+//             const _ann = await announcementsService.addAnn(ann);
+//             dispatch({ type: 'ADD_ANN', _ann })
+//         } catch (err) {
+//             console.log('SettingsActions: err in updateSettings', err);
+//         }
+//     }
+// }
+
+
+// export function removeAnn(annId) {
+//     return async dispatch => {
+//         try {
+//             await announcementsService.remove(annId);
+//             dispatch({ type: 'REMOVE_ANN', annId });
+//         } catch (err) {
+//             console.log('AnnActions: err in removeAnn', err);
+//         }
+//     };
+// }

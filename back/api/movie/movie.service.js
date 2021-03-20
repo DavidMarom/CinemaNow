@@ -2,7 +2,7 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
-    addMovie,query
+    addMovie,query,remove
 }
 
 async function query() {
@@ -18,8 +18,6 @@ async function query() {
     }
 }
 
-
-
 async function addMovie(movie) {
     const collection = await dbService.getCollection('movies')
     try {
@@ -27,6 +25,16 @@ async function addMovie(movie) {
         return movie;
     } catch (err) {
         console.log(`ERROR: cannot insert movie`)
+        throw err;
+    }
+}
+
+async function remove(movId) {
+    const collection = await dbService.getCollection('movies')
+    try {
+        await collection.deleteOne({ "_id": ObjectId(movId) })
+    } catch (err) {
+        console.log(`ERROR: cannot remove movie ${movId}`)
         throw err;
     }
 }

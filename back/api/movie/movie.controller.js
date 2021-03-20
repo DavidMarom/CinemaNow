@@ -12,8 +12,14 @@ async function getMovies(req, res) {
     res.send(movies)
 }
 
+async function deleteMovie(req, res) {
+    const movie = await movieService.remove(req.params.id)
+    res.send(movie)
+}
+
 
 module.exports = {
     addMovie,
-    getMovies
+    getMovies,
+    deleteMovie
 }
