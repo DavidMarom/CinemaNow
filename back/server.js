@@ -12,11 +12,7 @@ const http = require('http').createServer(app);
 app.use(cookieParser())
 app.use(bodyParser.json());
 
-// app.use(
-//     express.urlencoded({
-//         extended: true
-//     })
-// )
+
 
 app.use(express.json());
 app.use(session({
@@ -36,10 +32,12 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions));
 }
 
+const showRoutes = require('./api/show/show.routes')
 const movieRoutes = require('./api/movie/movie.routes')
 const tmdbRoutes = require('./api/tmdb/tmdb.routes')
 
 //routes
+app.use('/api/show', showRoutes)
 app.use('/api/movie', movieRoutes)
 app.use('/api/tmdb', tmdbRoutes)
 

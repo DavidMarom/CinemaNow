@@ -24,7 +24,7 @@ console.log(mov);
                         : null}
 
 {/* REMOVE Button */}
-                    {btnRemove ? <button className="btn2 lnk-btn" onClick={() => {
+                    {btnRemove ? <button className="btn-del lnk-btn" onClick={() => {
                         dispatch(removeMov(mov._id));
                         history.push("/movies");
 

@@ -8,7 +8,6 @@ module.exports = {
 async function query() {
     const collection = await dbService.getCollection('movies');
     try {
-        console.log('movies service');
         var movies = await collection.find().toArray();
         return movies;
     }

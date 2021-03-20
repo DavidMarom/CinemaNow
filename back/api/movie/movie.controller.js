@@ -1,9 +1,7 @@
 const movieService = require('./movie.service')
 
-
 async function addMovie(req, res) {
-    const movie = req.body;
-    await movieService.addMovie(movie)
+    const movie = await movieService.addMovie(req.body)
     res.send(movie)
 }
 
@@ -16,7 +14,6 @@ async function deleteMovie(req, res) {
     const movie = await movieService.remove(req.params.id)
     res.send(movie)
 }
-
 
 module.exports = {
     addMovie,

@@ -44,7 +44,6 @@ h6 {
   letter-spacing: 0.15px;
 }
 
-
 .small-text {
   height: 17px;
   font-family: varela;
@@ -66,13 +65,16 @@ p {
   }
 }
 
-.input{
+i {
+  margin-right: 1rem;
+}
+
+.input {
   height: 2rem;
   background-color: #f6f6f6;
   border: 1px solid #d6d6d6;
-  margin-right: 1rem ;
+  margin-right: 1rem;
   padding: 0.5rem;
-
 }
 
 /* HIGHT *********************/
@@ -362,7 +364,6 @@ a.visited {
 .tvalign {
   vertical-align: middle;
 }
-
 
 .login-btn {
   font-family: "FiraSans", sans-serif;
