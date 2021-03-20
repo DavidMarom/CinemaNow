@@ -1,10 +1,9 @@
-import httpService from './httpService'
+import { httpService } from './httpService'
 
-function add() {
-    return httpService.get(`movie/`);
+function add(mov) {
+    return httpService.post(`movie/add`, mov);
 }
 
-
-export const settingsService = {
+export const moviesService = {
     add
 }

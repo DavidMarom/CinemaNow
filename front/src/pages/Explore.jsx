@@ -43,7 +43,7 @@ export const Explore = () => {
             </div>
 
             { movies ?
-                movies.results.map((mov, idx) => { return <MovieStrip key={idx} title={mov.name} movId={mov.id} /> }) : null}
+                movies.results.map((mov, idx) => { return <MovieStrip key={idx} title={mov.name} movId={mov.id} mov={mov} /> }) : null}
 
 
         </div>
