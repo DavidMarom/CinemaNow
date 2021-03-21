@@ -7,7 +7,7 @@ export function loadShow() {
             const allShow = await showsService.getAllShows();
             dispatch({ type: 'LOAD_SHOW', allShow });
         } catch (err) {
-            console.log('SettingsActions: err in getAllShows', err);
+            console.log('err in getAllShows', err);
         }
     };
 }
@@ -18,7 +18,7 @@ export function addShow(show) {
             const _show = await showsService.addShow(show);
             dispatch({ type: 'ADD_SHOW', _show })
         } catch (err) {
-            console.log('SettingsActions: err in addShow', err);
+            console.log('err in addShow', err);
         }
     }
 }
@@ -29,14 +29,18 @@ export function removeShow(showId) {
             await showsService.removeShow(showId);
             dispatch({ type: 'REMOVE_SHOW', showId });
         } catch (err) {
-            console.log('AnnActions: err in removeShow', err);
+            console.log('err in removeShow', err);
         }
     };
 }
 
 export function updateShow(show) {
     return async dispatch => {
-        const _show = await showsService.update(show);
-        dispatch({ type: 'UPDATE_SHOW', _show })
+        try {
+            const _show = await showsService.update(show);
+            dispatch({ type: 'UPDATE_SHOW', _show : _show });
+        } catch (err) {
+            console.log('err in updateShow', err);
+        }
     };
 }

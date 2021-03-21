@@ -1,36 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
-// import moment from 'moment'
-import { removeShow } from '../store/actions/showActions'
+import { removeShow, updateShow } from '../store/actions/showActions'
 import history from '../history';
-import { updateShow } from '../store/actions/showActions'
-
 
 export const ShowStrip = ({ show }) => {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
-
-  const [hall, setHall] = useState(show.hal);
-  const [time, setTime] = useState(show.time);
-
+  const [hall, setHall] = useState();
+  const [time, setTime] = useState();
   let trash = (<i className="far fa-trash-alt"></i>);
 
+  useEffect(() => {
+    // setHall(show.hall);
+    // setTime(show.time);
+    console.log('TITLE:', show.title);
+  }, [])
 
-  const doAdd = (event) => {
+  const doUpdate = (event) => {
     event.preventDefault();
     const jsObj = Date.parse(time); // to unix time
-    let newShow = { title: show.name, hall: hall, time: time, ts: jsObj }
+    var newShow = show;
+    newShow.hall = hall;
+    newShow.time = time;
+    newShow.ts = jsObj;
+    // let newShow = { title: show.title, hall: hall, time: time, ts: jsObj }
     dispatch(updateShow(newShow));
     setEdit(false);
+
+
   }
 
-
-  let addForm = (
-    <form onSubmit={doAdd} className="ral">
-
-      <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
+  let updateForm = (
+    <form onSubmit={doUpdate} className="ral">
+      <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }}  />
       <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
-
       <div><button>Update</button></div>
     </form>);
 
@@ -40,6 +43,7 @@ export const ShowStrip = ({ show }) => {
       {/* LEFT */}
       <div className="ral">
 
+        {/* DELETE BUTTON */}
         <button className="btn-del lnk-btn"
           onClick={() => {
             dispatch(removeShow(show._id));
@@ -52,18 +56,13 @@ export const ShowStrip = ({ show }) => {
         <p className="movie-title">Hall: {show.hall}</p>
         <p className="movie-title">{show.time}</p>
 
-
-
+        {/* Toggle edit button */}
         <button className="btn2 lnk-btn" onClick={() => setEdit(!edit)}>
           {edit ? <p>◄ Cancel</p> : <p>update</p>}
         </button>
-        <div>{edit ? (addForm) : null}</div>
-
+        <div>{edit ? (updateForm) : null}</div>
       </div>
-
       {/* <div className="ral"></div> */}
-
-
     </div>
   )
 }

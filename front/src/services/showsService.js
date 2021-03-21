@@ -25,12 +25,23 @@ async function removeShow(showId) {
     } catch (err) {
         console.log(err);
     }
-    
+
 }
+
+// async function update(show) {
+//     try {
+//         const res = await httpService.put(`show/update`, show);
+//         return res;
+
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
 
 function update(show) {
     return httpService.put(`show/update`, show)
 }
+
 
 export const showsService = {
     addShow,

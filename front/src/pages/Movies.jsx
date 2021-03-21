@@ -20,8 +20,7 @@ export const Movies = () => {
                 <h1>Our Movies</h1>
                 <p>This is our local movie library. Use the items below to create shows</p>
             </div>
-            { moviesInState ?
-                moviesInState.map((mov, idx) => { return <MovieStripLocal key={idx} mov={mov} /> }) : null}
+            { moviesInState ? moviesInState.map((mov, idx) => { return <MovieStripLocal key={idx} mov={mov} /> }) : null}
         </div>
     )
 }

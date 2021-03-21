@@ -14,7 +14,10 @@ export function showReducer(state = initialState, action = {}) {
             return { ...state, show: state.show.filter(show => show._id !== action.showId) };
 
         case 'UPDATE_SHOW':
-            return { ...state, show: state.show.map(show => (action._show._id === show._id) ? action._show : show) }
+            console.log('reducer', action._show);
+            // return { show:[action._show] }
+            // return { ...state, show:[...state.show, state.show.map( GUSH => (action._show._id === GUSH._id ? action._show : GUSH)    )] }
+            return { ...state, show: state.show.map( show => (action._show._id === show._id) ? action._show : show) }
 
         default:
             return state

@@ -8,17 +8,12 @@ import history from '../history';
 export const MovieStripLocal = ({ mov }) => {
     const dispatch = useDispatch();
     const [edit, setEdit] = useState(false);
-
     const [hall, setHall] = useState(0);
     const [time, setTime] = useState();
 
     const doAdd = (event) => {
         event.preventDefault();
-        // const momObj = moment(time); // create momentJS object with the input - we need this for sorting
-
         const jsObj = Date.parse(time); // to unix time
-
-        // let newShow = { title: mov.name, hall: hall, time: time, ts: momObj.valueOf() }
         let newShow = { title: mov.name, hall: hall, time: time, ts: jsObj }
         dispatch(addShow(newShow));
         setEdit(false);

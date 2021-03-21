@@ -22,7 +22,6 @@ async function updateShow(req, res) {
     res.send(show)
 }
 
-
 module.exports = {
     addShow,
     getShows,
