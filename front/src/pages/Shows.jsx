@@ -1,3 +1,5 @@
+// *********   PAGE 3- SHOWS
+
 import React from 'react'
 import { useSelector } from "react-redux";
 import { ShowStrip } from '../cmps/ShowStrip'

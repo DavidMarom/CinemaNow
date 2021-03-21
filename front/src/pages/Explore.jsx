@@ -1,9 +1,11 @@
+// *********   PAGE 1 - EXPLORE
+
 import React, { useState, useEffect } from 'react'
 import { tmdbService } from '../services/tmdbService'
 import { MovieStrip } from '../cmps/MovieStrip'
 
 export const Explore = () => {
-    
+
 
     const [searchVal, setSearchVal] = useState('matr');
     const [lastTime, setlastTime] = useState(Date.now());
@@ -31,16 +33,18 @@ export const Explore = () => {
 
     return (
         <div className="page-general">
-            <h2>Explore new movies</h2>
-            <div className="search-bar ral">
-                <p>Search for new movies: </p>
-                <input className="input"
-                    value={searchVal}
-                    type="text"
-                    onChange={ev => { setSearchVal(ev.target.value); }} />
-            </div>
+            <div className="hor-block">
 
-            { movies ?
+                <h1>Explore new movies</h1>
+                <div className="search-bar ral">
+                    <p>Search for new movies: </p>
+                    <input className="input"
+                        value={searchVal}
+                        type="text"
+                        onChange={ev => { setSearchVal(ev.target.value); }} />
+                </div>
+            </div>
+            {movies ?
                 movies.results.map((mov, idx) => {
                     return <MovieStrip
                         key={idx}
