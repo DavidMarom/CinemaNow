@@ -9,4 +9,9 @@ in each folder `front` and `back` run the command: `npm start`
 https://cinema-david.herokuapp.com/
 
 
-work is still in progress
+## Features
+ - Search to an external API
+ - Save to mongoDB
+ - 2 views : movies and shows - CRUD
+ - Sorted shows schedule
+ - Typeahead with debounce
