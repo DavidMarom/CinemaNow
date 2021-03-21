@@ -14,14 +14,8 @@ export const MovieStripLocal = ({ mov }) => {
 
     const doAdd = (event) => {
         event.preventDefault();
-
-        let newShow = {
-            title: mov.name,
-            hall : hall,
-            date : date,
-            time : time
-        }
-        console.log(newShow);
+        let newShow = { title: mov.name, hall: hall, date: date, time: time }
+        console.log('█',newShow);
         dispatch(addShow(newShow));
 
 
@@ -31,13 +25,12 @@ export const MovieStripLocal = ({ mov }) => {
     }
 
     let trash = (<i className="far fa-trash-alt"></i>);
-
     let addForm = (
         <form onSubmit={doAdd} className="ral">
             <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
             <input type="date" name="date" onChange={ev => { setDate(ev.target.value); }} placeholder="date" />
             <input type="time" name="time" onChange={ev => { setTime(ev.target.value); }} placeholder="time" />
-            <div><button >Add</button><br /></div>
+            <div><button >Add</button></div>
         </form>);
 
     return (
@@ -55,9 +48,9 @@ export const MovieStripLocal = ({ mov }) => {
 
                 <p className="movie-title">{mov.name}</p>
                 <button className="btn2 lnk-btn" onClick={() => setEdit(!edit)}>
-                    {edit ? <p>Cancel</p> : <p>Add Show</p>}
+                    {edit ? <p>◄ Cancel</p> : <p>Add Show</p>}
                 </button>
-                <div className="">{edit ? (addForm) : null}</div>
+                <div>{edit ? (addForm) : null}</div>
             </div>
 
 

@@ -1,6 +1,8 @@
 import { moviesService } from '../../services/moviesService';
 
 export function loadMov() {
+    console.log('action: get all movies');
+
     return async dispatch => {
         try {
             const allMov = await moviesService.getAllMovies();

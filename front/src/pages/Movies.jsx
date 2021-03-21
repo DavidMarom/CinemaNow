@@ -1,6 +1,6 @@
 // *********   PAGE 2 - OUR MOVIES
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { MovieStripLocal } from '../cmps/MovieStripLocal'
@@ -9,11 +9,10 @@ import { loadMov } from '../store/actions/movActions'
 export const Movies = () => {
     const dispatch = useDispatch();
     const moviesInState = useSelector((state) => state.movReducer.mov);
-    
+
     useEffect(() => {
         dispatch(loadMov());
-    }, [moviesInState])
-
+    }, [])
 
     return (
         <div className="page-general">

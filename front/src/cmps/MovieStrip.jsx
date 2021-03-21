@@ -1,15 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from "react-redux";
 import { addMov} from '../store/actions/movActions'
 import history from '../history';
 
 export const MovieStrip = ({ mov, btnAdd, btnRemove }) => {
     const dispatch = useDispatch();
-    const [edit, setEdit] = useState(false);
-
-    const doAdd = () => {
-        console.log('hey');
-    }
 
 
     return (
