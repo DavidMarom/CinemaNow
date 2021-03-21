@@ -1,29 +1,33 @@
 .movie-strip {
     border-bottom: 1px solid #eeeeee;
     height: 3rem;
-    // align-content: center;
+}
+
+.h-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // background-color: rgb(128, 116, 50);
 }
 
 .movie-title {
     display: flex;
     flex-direction: row;
-
     width: 40%;
-    align-content: center;
-    align-items: center;
 }
 .movie-id {
     display: flex;
     flex-direction: row;
     align-content: center;
     align-items: center;
-    width: 7rem;
+    width: 10rem;
+    font-size: 0.7rem;
 }
 
 .add-button-col {
     display: flex;
     flex-direction: row;
-    width: 12rem;
+    width: 7rem;
     align-content: center;
     align-items: center;
 }

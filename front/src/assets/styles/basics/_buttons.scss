@@ -9,24 +9,8 @@
     font-family: "Red Hat Text", sans-serif;
 }
 
-
-
-.btn2 {
-    border: 0px solid #ff020200;
-    color: #ffffff;
-    border-radius: 50px;
-    background-color: #2b8ed0;
-    padding-right: 15%;
-    padding-left: 10%;
-    text-align: center;
-    width: fit-content;
-    height: 31px;
-}
-
 .btn2:hover {
-    
     background-color: #1069a5;
-    
 }
 
 .btn-del {
@@ -34,23 +18,33 @@
     color: #ffffff;
     border-radius: 50px;
     background-color: #b9b9b9;
-    padding-right: 15%;
-    padding-left: 10%;
+    padding-right: 1rem;
+    padding-left: 1rem;
     text-align: center;
     width: fit-content;
     height: 31px;
+    margin-right: 1rem;
+}
+.btn2 {
+    border: 0px solid #ff020200;
+    color: #ffffff;
+    border-radius: 50px;
+    background-color: #2b8ed0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: center;
+    width: fit-content;
+    height: 31px;
+    margin-right: 1rem;
 }
 
 .btn-del:hover {
-    
     background-color: #dd0000;
-    
 }
 
 .lnk-btn {
     cursor: pointer;
     // text-decoration: none;
-
 }
 
 .lnk-btn:hover {

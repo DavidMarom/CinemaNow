@@ -7,6 +7,7 @@ body {
   font-size: rem(16px);
   margin: 0;
   color: $text-dark;
+  background-color: #d7ddf8;
 }
 
 ::selection {
@@ -66,7 +67,7 @@ p {
 }
 
 i {
-  margin-right: 1rem;
+  // margin-right: 1rem;
 }
 
 .input {

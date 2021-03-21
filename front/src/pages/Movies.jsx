@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { MovieStrip } from '../cmps/MovieStrip'
+import { MovieStripLib } from '../cmps/MovieStripLib'
 
 export const Movies = () => {
 
@@ -13,7 +13,7 @@ export const Movies = () => {
                 <p>This is our local movie library. Use the items below to create shows</p>
             </div>
             { moviesInState ?
-                moviesInState.map((mov, idx) => { return <MovieStrip key={idx} mov={mov} btnAdd={false} btnRemove={true} /> }) : null}
+                moviesInState.map((mov, idx) => { return <MovieStripLib key={idx} mov={mov} btnAdd={false} btnRemove={true} /> }) : null}
         </div>
     )
 }
