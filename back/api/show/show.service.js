@@ -2,13 +2,13 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
-    addShow,query,remove
+    addShow,query,remove,update
 }
 
 async function query() {
     const collection = await dbService.getCollection('shows');
     try {
-        var shows = await collection.find().toArray();
+        var shows = await collection.find().sort( { "ts": 1 } ).toArray();
         return shows;
     }
     catch (err) {
@@ -34,6 +34,20 @@ async function remove(showId) {
         await collection.deleteOne({ "_id": ObjectId(showId) })
     } catch (err) {
         console.log(`ERROR: cannot remove movie ${showId}`)
+        throw err;
+    }
+}
+
+
+async function update(show) {
+    const collection = await dbService.getCollection('shows')
+    show._id = ObjectId(show._id);
+
+    try {
+        await collection.updateOne({ _id: show._id }, { $set: show })
+        return show
+    } catch (err) {
+        console.log(`ERROR: cannot update show ${show._id}`)
         throw err;
     }
 }

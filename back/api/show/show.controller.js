@@ -16,9 +16,16 @@ async function deleteShow(req, res) {
     res.send(show)
 }
 
+async function updateShow(req, res) {
+    const show = req.body;
+    await showService.update(show)
+    res.send(show)
+}
+
 
 module.exports = {
     addShow,
     getShows,
-    deleteShow
+    deleteShow,
+    updateShow
 }

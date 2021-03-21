@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from "react-redux";
-import { addMov} from '../store/actions/movActions'
+import { addMov } from '../store/actions/movActions'
 import history from '../history';
 
 export const MovieStrip = ({ mov, btnAdd, btnRemove }) => {
@@ -14,7 +14,12 @@ export const MovieStrip = ({ mov, btnAdd, btnRemove }) => {
 
                     <button className="btn2 lnk-btn" onClick={() => {
                         dispatch(addMov(mov));
-                        history.push("/movies");
+
+                        setTimeout(function () {
+                            history.push("/movies");
+                        }, 500);
+
+
                     }}>
                         <i className="fas fa-plus"></i> Add</button>
 
@@ -22,8 +27,8 @@ export const MovieStrip = ({ mov, btnAdd, btnRemove }) => {
                 </div>
                 <p className="movie-title">{mov.name}</p>
             </div>
-            
-            
+
+
             <p className="movie-id">id: {mov.id}</p>
         </div>
     )

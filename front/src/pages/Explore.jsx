@@ -5,8 +5,6 @@ import { tmdbService } from '../services/tmdbService'
 import { MovieStrip } from '../cmps/MovieStrip'
 
 export const Explore = () => {
-
-
     const [searchVal, setSearchVal] = useState('matr');
     const [lastTime, setlastTime] = useState(Date.now());
     const [que, setQue] = useState(0);

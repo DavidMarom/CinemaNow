@@ -28,9 +28,13 @@ async function removeShow(showId) {
     
 }
 
+function update(show) {
+    return httpService.put(`show/update`, show)
+}
 
 export const showsService = {
     addShow,
     getAllShows,
-    removeShow
+    removeShow,
+    update
 }

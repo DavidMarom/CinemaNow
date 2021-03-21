@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { removeMov } from '../store/actions/movActions'
 import { addShow } from '../store/actions/showActions'
+// import moment from 'moment';
 import history from '../history';
 
 export const MovieStripLocal = ({ mov }) => {
@@ -9,27 +10,27 @@ export const MovieStripLocal = ({ mov }) => {
     const [edit, setEdit] = useState(false);
 
     const [hall, setHall] = useState(0);
-    const [date, setDate] = useState();
     const [time, setTime] = useState();
 
     const doAdd = (event) => {
         event.preventDefault();
-        let newShow = { title: mov.name, hall: hall, date: date, time: time }
-        console.log('█',newShow);
+        // const momObj = moment(time); // create momentJS object with the input - we need this for sorting
+
+        const jsObj = Date.parse(time); // to unix time
+
+        // let newShow = { title: mov.name, hall: hall, time: time, ts: momObj.valueOf() }
+        let newShow = { title: mov.name, hall: hall, time: time, ts: jsObj }
         dispatch(addShow(newShow));
-
-
-
         setEdit(false);
-
     }
 
     let trash = (<i className="far fa-trash-alt"></i>);
     let addForm = (
         <form onSubmit={doAdd} className="ral">
+
             <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
-            <input type="date" name="date" onChange={ev => { setDate(ev.target.value); }} placeholder="date" />
-            <input type="time" name="time" onChange={ev => { setTime(ev.target.value); }} placeholder="time" />
+            <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
+
             <div><button >Add</button></div>
         </form>);
 

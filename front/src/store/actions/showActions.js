@@ -33,3 +33,10 @@ export function removeShow(showId) {
         }
     };
 }
+
+export function updateShow(show) {
+    return async dispatch => {
+        const _show = await showsService.update(show);
+        dispatch({ type: 'UPDATE_SHOW', _show })
+    };
+}
