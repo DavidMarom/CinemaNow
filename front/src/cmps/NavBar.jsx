@@ -15,8 +15,9 @@ function _NavBar() {
 
   return (
     <div className="nav-bar ca">
-
-      <h1>Cinema Now</h1>
+      <NavLink to="/">
+        <h1>Cinema Now</h1>
+      </NavLink>
 
       <div className={(pageName === '1' ? "active-cell" : "inactive-cell")}>
         <NavLink to="/">
