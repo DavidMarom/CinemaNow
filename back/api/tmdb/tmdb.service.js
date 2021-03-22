@@ -1,5 +1,3 @@
-const dbService = require('../../services/db.service')
-
 const Axios = require('axios');
 var axios = Axios.create({ withCredentials: true });
 
@@ -23,8 +21,6 @@ async function ajax(endpoint, method = 'get', data = null) {
 
 module.exports = {
     getByQuery
-    // add,
-    // remove
 }
 
 async function getByQuery(query) {
@@ -35,24 +31,3 @@ async function getByQuery(query) {
         throw err;
     }
 }
-
-// async function add(movie) {
-//     const collection = await dbService.getCollection('movies')
-//     try {
-//         await collection.insertOne(movie);
-//         return movie;
-//     } catch (err) {
-//         console.log(`ERROR: cannot insert movie`);
-//         throw err;
-//     }
-// }
-
-// async function remove(movieId) {
-//     const collection = await dbService.getCollection('movie')
-//     try {
-//         await collection.deleteOne({ "_id": ObjectId(movieId) })
-//     } catch (err) {
-//         console.log(`ERROR: cannot remove movie ${movieId}`)
-//         throw err;
-//     }
-// }

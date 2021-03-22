@@ -5,7 +5,7 @@ import { tmdbService } from '../services/tmdbService'
 import { MovieStrip } from '../cmps/MovieStrip'
 
 export const Explore = () => {
-    const [searchVal, setSearchVal] = useState('matr');
+    const [searchVal, setSearchVal] = useState('movie');
     const [lastTime, setlastTime] = useState(Date.now());
     const [que, setQue] = useState(0);
     const [movies, setMovies] = useState();
@@ -46,8 +46,6 @@ export const Explore = () => {
                     return <MovieStrip
                         key={idx}
                         mov={mov}
-                        btnAdd={true}
-                        btnRemove={false}
                     />
                 }) : null}
         </div>

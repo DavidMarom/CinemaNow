@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
-import { removeShow, updateShow } from '../store/actions/showActions'
+import { removeShow, updateShow,loadShow } from '../store/actions/showActions'
+
 import history from '../history';
 
 export const ShowStrip = ({ show }) => {
@@ -11,6 +12,8 @@ export const ShowStrip = ({ show }) => {
   let trash = (<i className="far fa-trash-alt"></i>);
 
   useEffect(() => {
+    setHall(show.hall);
+    setTime(show.time);
   }, [])
 
   const doUpdate = (event) => {
@@ -22,12 +25,16 @@ export const ShowStrip = ({ show }) => {
     newShow.ts = jsObj;
     dispatch(updateShow(newShow));
     setEdit(false);
+
+    setTimeout(function () {
+      dispatch(loadShow());
+  }, 500);
   }
 
   let updateForm = (
     <form onSubmit={doUpdate} className="ral">
-      <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} />
-      <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
+      <input type="number" name="hall" value={hall} onChange={ev => { setHall(ev.target.value); }} />
+      <input type="datetime-local" name="time" value={time} onChange={ev => { setTime(ev.target.value); }} />
       <div><button>Update</button></div>
     </form>);
 

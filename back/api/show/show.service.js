@@ -38,7 +38,6 @@ async function remove(showId) {
     }
 }
 
-
 async function update(show) {
     const collection = await dbService.getCollection('shows')
     show._id = ObjectId(show._id);
