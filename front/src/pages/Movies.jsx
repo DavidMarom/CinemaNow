@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { MovieStripLocal } from '../cmps/MovieStripLocal'
 import { loadMov } from '../store/actions/movActions'
+import { setPageName } from '../store/actions/pageActions'
+
 
 export const Movies = () => {
     const dispatch = useDispatch();
@@ -13,6 +15,10 @@ export const Movies = () => {
     useEffect(() => {
         dispatch(loadMov());
     }, [])
+
+    useEffect(() => {
+        dispatch(setPageName('2'))
+    })
 
     return (
         <div className="page-general">

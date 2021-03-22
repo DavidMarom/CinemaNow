@@ -3,8 +3,13 @@
 import React, { useState, useEffect } from 'react'
 import { tmdbService } from '../services/tmdbService'
 import { MovieStrip } from '../cmps/MovieStrip'
+import { useDispatch } from 'react-redux'
+import { setPageName } from '../store/actions/pageActions'
+
 
 export const Explore = () => {
+    const dispatch = useDispatch();
+
     const [searchVal, setSearchVal] = useState('movie');
     const [lastTime, setlastTime] = useState(Date.now());
     const [que, setQue] = useState(0);
@@ -27,6 +32,10 @@ export const Explore = () => {
             }
         } // if searchVal
     }, [searchVal]);
+
+    useEffect(() => {
+        dispatch(setPageName('1'))
+    })
 
     return (
         <div className="page-general">

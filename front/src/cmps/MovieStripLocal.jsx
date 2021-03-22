@@ -21,10 +21,8 @@ export const MovieStripLocal = ({ mov }) => {
     let trash = (<i className="far fa-trash-alt"></i>);
     let addForm = (
         <form onSubmit={doAdd} className="ral">
-
-            <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
-            <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
-
+            <input className="input" type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
+            <input className="input" type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
             <div><button className="btn-add" >Add</button></div>
         </form>);
 
