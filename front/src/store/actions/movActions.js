@@ -1,8 +1,6 @@
 import { moviesService } from '../../services/moviesService';
 
 export function loadMov() {
-    console.log('action: get all movies');
-
     return async dispatch => {
         try {
             const allMov = await moviesService.getAllMovies();
@@ -23,7 +21,6 @@ export function addMov(mov) {
         }
     }
 }
-
 
 export function removeMov(movId) {
     return async dispatch => {

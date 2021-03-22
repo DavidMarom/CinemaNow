@@ -1,7 +1,6 @@
 import { showsService } from '../../services/showsService';
 
 export function loadShow() {
-    console.log('action: get all shows');
     return async dispatch => {
         try {
             const allShow = await showsService.getAllShows();

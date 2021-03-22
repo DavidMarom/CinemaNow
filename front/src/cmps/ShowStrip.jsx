@@ -11,9 +11,6 @@ export const ShowStrip = ({ show }) => {
   let trash = (<i className="far fa-trash-alt"></i>);
 
   useEffect(() => {
-    // setHall(show.hall);
-    // setTime(show.time);
-    console.log('TITLE:', show.title);
   }, [])
 
   const doUpdate = (event) => {
@@ -23,16 +20,13 @@ export const ShowStrip = ({ show }) => {
     newShow.hall = hall;
     newShow.time = time;
     newShow.ts = jsObj;
-    // let newShow = { title: show.title, hall: hall, time: time, ts: jsObj }
     dispatch(updateShow(newShow));
     setEdit(false);
-
-
   }
 
   let updateForm = (
     <form onSubmit={doUpdate} className="ral">
-      <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }}  />
+      <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} />
       <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
       <div><button>Update</button></div>
     </form>);
@@ -58,11 +52,10 @@ export const ShowStrip = ({ show }) => {
 
         {/* Toggle edit button */}
         <button className="btn2 lnk-btn" onClick={() => setEdit(!edit)}>
-          {edit ? <p>◄ Cancel</p> : <p>update</p>}
+          {edit ? <p>Cancel</p> : <p>update</p>}
         </button>
         <div>{edit ? (updateForm) : null}</div>
       </div>
-      {/* <div className="ral"></div> */}
     </div>
   )
 }

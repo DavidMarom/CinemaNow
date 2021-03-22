@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from "react-redux";
 import { removeMov } from '../store/actions/movActions'
 import { addShow } from '../store/actions/showActions'
-// import moment from 'moment';
 import history from '../history';
 
 export const MovieStripLocal = ({ mov }) => {
@@ -54,9 +53,6 @@ export const MovieStripLocal = ({ mov }) => {
             <div className="h-center">
                 <p className="movie-id">id: {mov.id}</p>
             </div>
-
-
         </div>
-
     )
 }

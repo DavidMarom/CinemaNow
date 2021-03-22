@@ -28,7 +28,6 @@ export const Explore = () => {
         } // if searchVal
     }, [searchVal]);
 
-
     return (
         <div className="page-general">
             <div className="hor-block">

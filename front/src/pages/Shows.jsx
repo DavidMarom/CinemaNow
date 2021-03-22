@@ -1,4 +1,5 @@
 // *********   PAGE 3- SHOWS
+
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ShowStrip } from '../cmps/ShowStrip'
@@ -14,14 +15,11 @@ export const Shows = () => {
 
     return (
         <div className="page-general">
-            {console.log(showsInState)}
             <div className="hor-block">
                 <h1>Shows</h1>
             </div>
 
-
             { showsInState ? showsInState.map((show, idx) => { return <ShowStrip key={idx} show={show} /> }) : console.log('STATE NOT READY')}
-
 
         </div>
     )

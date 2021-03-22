@@ -10,14 +10,9 @@ function _NavBar() {
   useEffect(() => {
     dispatch(loadMov());
     dispatch(loadShow());
-    console.log('nav-bar');
   }, []);
 
-  // const test = useSelector((state) => state.movReducer.mov);
-
   return (
-
-
     <div className="nav-bar ca">
 
       <h1>Cinema Now</h1>

@@ -29,7 +29,6 @@ async function removeMov(movId) {
     
 }
 
-
 export const moviesService = {
     addMov,
     getAllMovies,
