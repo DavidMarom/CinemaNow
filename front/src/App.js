@@ -14,12 +14,11 @@ const _App = () => {
       <div className="outter-container">
         <div className="inner-container">
           <NavBar />
-
+        
           <Switch>
             <Route exact component={Explore} path={"/"} />
             <Route exact component={Shows} path={"/shows"} />
             <Route exact component={Movies} path={"/movies"} />
-
           </Switch>
         </div>
       </div>

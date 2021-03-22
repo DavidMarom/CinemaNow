@@ -41,7 +41,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
 
   width: 100%;
 }
@@ -108,7 +107,7 @@
 
 // ********************************
 
-.hor-block{
+.hor-block {
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -153,10 +152,4 @@
 
 .rel {
   position: relative;
-}
-
-.divider {
-  width: auto;
-  height: 1px;
-  background-color: #dadada;
 }

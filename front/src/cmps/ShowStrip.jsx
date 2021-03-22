@@ -35,7 +35,7 @@ export const ShowStrip = ({ show }) => {
     <form onSubmit={doUpdate} className="ral">
       <input type="number" name="hall" value={hall} onChange={ev => { setHall(ev.target.value); }} />
       <input type="datetime-local" name="time" value={time} onChange={ev => { setTime(ev.target.value); }} />
-      <div><button>Update</button></div>
+      <div><button className="btn-update">Update</button></div>
     </form>);
 
   return (

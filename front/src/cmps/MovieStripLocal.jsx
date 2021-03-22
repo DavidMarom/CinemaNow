@@ -25,7 +25,7 @@ export const MovieStripLocal = ({ mov }) => {
             <input type="number" name="hall" onChange={ev => { setHall(ev.target.value); }} placeholder="Hall" />
             <input type="datetime-local" name="time" onChange={ev => { setTime(ev.target.value); }} />
 
-            <div><button >Add</button></div>
+            <div><button className="btn-add" >Add</button></div>
         </form>);
 
     return (
